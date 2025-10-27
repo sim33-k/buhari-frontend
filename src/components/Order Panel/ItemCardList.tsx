@@ -1,9 +1,8 @@
-import React from 'react'
-import type { MenuItem } from '@/types/Common'
+import type { OrderItem } from '@/types/Common'
 import ItemCard from './ItemCard'
 
 interface ItemCardListProps {
-  items: MenuItem[];
+  items: OrderItem[];
   updateQuantity: (id: number, value: number) => void;
   removeFromOrder: (id: number) => void;
 }
