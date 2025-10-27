@@ -20,8 +20,11 @@ type SideDishCombination ={
   }
 }
 
+interface TableProps {
+  data?: SideDishCombination[];
+}
 
-const TableRoundedCornerDemo = ({ data = [] }: SideDishCombination[]) => {
+const TableRoundedCornerDemo = ({ data = [] }: TableProps) => {
   return (
     <div className='w-full'>
       <div className='overflow-hidden rounded-md border'>
@@ -34,7 +37,7 @@ const TableRoundedCornerDemo = ({ data = [] }: SideDishCombination[]) => {
           </TableHeader>
           <TableBody>
             {data.length > 0 ? (
-              data.map(match => (
+              data.map((match: SideDishCombination) => (
                 <TableRow key={match.mainDish.id}>
                   <TableCell className='font-medium'>{match.mainDish.name}</TableCell>
                   <TableCell className='text-right'>{match.mostPopularSideDish.name}</TableCell>
