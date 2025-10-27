@@ -41,7 +41,7 @@ export function ChartAreaInteractive() {
   const [timeRange, setTimeRange] = React.useState("90d")
   const [chartData, setChartData] = React.useState<any[]>([])
 
-  const backendURL = (import.meta as any).env?.BACKEND_URL || `https://buhari-backend.vercel.app`
+  const backendURL = `https://buhari-backend.vercel.app`
 
   React.useEffect(() => {
     // this isnt written by me
