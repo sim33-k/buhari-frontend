@@ -43,16 +43,17 @@ const Dashboard = () => {
     const response = async () => {
       // for daily sales
       const today = new Date().toISOString().split('T')[0];
-      // {"success":true,"data":{"_sum":{"total":"1445"}}}
-      const salesResponse = await (await fetch(`${backendURL}/reports/daily-sales-revenue?date=${today}`)).json();
-      // {"success":true,"data":{"name":"Rotty","totalQuantity":5}}
-      const mainDishResponse = await (await fetch(`${backendURL}/reports/famous-main-dish`)).json();
-      // {"success":true,"data":{"name":"Wadai","totalQuantity":6}}
-      const sideDishResponse = await (await fetch(`${backendURL}/reports/famous-side-dish`)).json();
-      // {"success":true,"data":{"name":"Watalappam","totalQuantity":2}}
-      const dessertResponse = await (await fetch(`${backendURL}/reports/famous-dessert`)).json();
+      
+      // Fetch all reports in parallel for better performance
+      const [salesResponse, mainDishResponse, sideDishResponse, dessertResponse, combResponse] = 
+        await Promise.all([
+          fetch(`${backendURL}/reports/daily-sales-revenue?date=${today}`).then(r => r.json()),
+          fetch(`${backendURL}/reports/famous-main-dish`).then(r => r.json()),
+          fetch(`${backendURL}/reports/famous-side-dish`).then(r => r.json()),
+          fetch(`${backendURL}/reports/famous-dessert`).then(r => r.json()),
+          fetch(`${backendURL}/reports/side-dish-combinations`).then(r => r.json())
+        ]);
 
-      const combResponse = await (await fetch(`${backendURL}/reports/side-dish-combinations`)).json();
       console.log(combResponse);
 
       setStats({
