@@ -7,7 +7,6 @@ import { useEffect, useState, useRef } from 'react';
 import {
   NavigationMenu,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
 } from '@/components/ui/navigation-menu';
 import {
@@ -175,31 +174,31 @@ export const Navbar01 = React.forwardRef<HTMLElement, Navbar01Props>(
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent align="start" className="w-48 p-2">
-                <NavigationMenu className="max-w-none">
-                  <NavigationMenuList className="flex-col items-start gap-1">
-                    {navigationLinks.map((link, index) => (
-                      <NavigationMenuItem key={index} className="w-full">
-                        <Link
-                          to={link.href}
-                          className={cn(
-                            "flex w-full items-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground no-underline",
-                            location.pathname === link.href 
-                              ? "bg-accent text-accent-foreground" 
-                              : "text-foreground/80"
-                          )}
-                        >
-                          {link.label}
-                        </Link>
-                      </NavigationMenuItem>
-                    ))}
-                  </NavigationMenuList>
-                </NavigationMenu>
+                  <NavigationMenu className="max-w-none">
+                    <NavigationMenuList className="flex-col items-start gap-1">
+                      {navigationLinks.map((link, index) => (
+                        <NavigationMenuItem key={index} className="w-full">
+                          <Link
+                            to={link.href}
+                            className={cn(
+                              "flex w-full items-center rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground no-underline",
+                              location.pathname === link.href
+                                ? "bg-accent text-accent-foreground"
+                                : "text-foreground/80"
+                            )}
+                          >
+                            {link.label}
+                          </Link>
+                        </NavigationMenuItem>
+                      ))}
+                    </NavigationMenuList>
+                  </NavigationMenu>
                 </PopoverContent>
               </Popover>
             )}
             {/* Main nav */}
             <div className="flex items-center gap-6">
-              <Link 
+              <Link
                 to="/"
                 className="flex items-center space-x-2 text-primary hover:text-primary/90 transition-colors"
               >
@@ -211,23 +210,23 @@ export const Navbar01 = React.forwardRef<HTMLElement, Navbar01Props>(
               {/* Navigation menu */}
               {!isMobile && (
                 <NavigationMenu className="flex">
-                <NavigationMenuList className="gap-1">
-                  {navigationLinks.map((link, index) => (
-                    <NavigationMenuItem key={index}>
-                      <Link
-                        to={link.href}
-                        className={cn(
-                          "group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 no-underline",
-                          location.pathname === link.href 
-                            ? "bg-accent text-accent-foreground" 
-                            : "text-foreground/80 hover:text-foreground"
-                        )}
-                      >
-                        {link.label}
-                      </Link>
-                    </NavigationMenuItem>
-                  ))}
-                </NavigationMenuList>
+                  <NavigationMenuList className="gap-1">
+                    {navigationLinks.map((link, index) => (
+                      <NavigationMenuItem key={index}>
+                        <Link
+                          to={link.href}
+                          className={cn(
+                            "group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 no-underline",
+                            location.pathname === link.href
+                              ? "bg-accent text-accent-foreground"
+                              : "text-foreground/80 hover:text-foreground"
+                          )}
+                        >
+                          {link.label}
+                        </Link>
+                      </NavigationMenuItem>
+                    ))}
+                  </NavigationMenuList>
                 </NavigationMenu>
               )}
             </div>
