@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Input } from './ui/input'
 import { Button } from './ui/button'
-import { useEffect } from 'react'
 import ItemCard from './ItemCard'
 import type { MenuItem } from '@/types/Common'
 
@@ -16,8 +15,8 @@ const MenuPanel = ({addToOrder} : MenuPanelProps) => {
 
   // state for menu items which are fetched
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [, setIsLoading] = useState(true);
+  const [, setError] = useState<string | null>(null);
   const backendURL = import.meta.env.BACKEND_URL || `http://localhost:3000`;
 
   const types = [
