@@ -66,7 +66,7 @@ const Orders = () => {
   useEffect(() => {
     const getOrders = async () => {
       try {
-        const response = await fetch("http://localhost:3000/orders")
+        const response = await fetch("https://buhari-backend.vercel.app/orders")
         const result = await response.json()
         if (result.success) {
           setOrders(result.data)

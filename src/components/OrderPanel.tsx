@@ -15,7 +15,7 @@ interface OrderPanelProps {
   }>>;
 }
 
-  const backendURL = import.meta.env.BACKEND_URL || `http://localhost:3000`;
+  const backendURL = import.meta.env.BACKEND_URL || `https://buhari-backend.vercel.app`;
 
 const OrderPanel = ({orderItem, updateQuantity, removeFromOrder, clearOrder, setAlertState }:OrderPanelProps) =>{
 

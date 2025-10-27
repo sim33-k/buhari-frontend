@@ -17,7 +17,7 @@ const MenuPanel = ({addToOrder} : MenuPanelProps) => {
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [, setIsLoading] = useState(true);
   const [, setError] = useState<string | null>(null);
-  const backendURL = import.meta.env.BACKEND_URL || `http://localhost:3000`;
+  const backendURL = import.meta.env.BACKEND_URL || `https://buhari-backend.vercel.app`;
 
   const types = [
     {id: 'all', name: 'All Items'},
