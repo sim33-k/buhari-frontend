@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SectionCards } from '@/components/section-cards'
 import TableRoundedCornerDemo from '@/components/shadcn-studio/table/table-03';
 import { ChartAreaInteractive } from '@/components/chart-area-interactive';
