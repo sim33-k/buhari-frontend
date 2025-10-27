@@ -1,14 +1,14 @@
 import { Button } from '../ui/button'
 import { Plus, Trash2, Minus } from 'lucide-react'
-import type { MenuItem } from '@/types/Common'
+import type { OrderItem } from '@/types/Common'
 
-interface ItemCardListProps {
-  items: MenuItem[];
+interface ItemCardProps {
+  item: OrderItem;
   updateQuantity: (id: number, value: number) => void;
   removeFromOrder: (id: number) => void;
 }
 
-const ItemCard = ({item, updateQuantity, removeFromOrder}) => {
+const ItemCard = ({item, updateQuantity, removeFromOrder}: ItemCardProps) => {
   return (
     <div className='border border-border rounded-lg p-3 bg-background'>
         <div className='flex justify-between items-start mb-2'>
@@ -36,7 +36,7 @@ const ItemCard = ({item, updateQuantity, removeFromOrder}) => {
                 </Button>
             </div>
             <div className='ml-auto font-medium'>
-                Rs. {item.price * item.quantity}
+                Rs. {parseFloat(item.price) * item.quantity}
             </div>
 
         </div>
