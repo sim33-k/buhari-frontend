@@ -175,7 +175,7 @@ export function ChartAreaInteractive() {
             />
             <Area
               dataKey="sales"
-              type="natural"
+              type="monotone"
               fill="url(#fillSales)"
               stroke="var(--color-sales)"
             />
